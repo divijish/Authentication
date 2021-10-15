@@ -4,8 +4,15 @@ const app = express();
 
 function middleware1(req, res, next){
     console.log("I am middleware1.");
-    next();
-    //res.send('<h2> hello.</h2>');
+    const errObj = new Error('I am an error');
+
+    next (errObj);
+}
+
+function errorHandler(err, req, res, next){
+    if(err){
+        res.send('<h1> There was an error, please try again</h1>');
+    }
 }
 
 function standardExpressCallback(requestObject, responseObject, nextMiddleWare){
