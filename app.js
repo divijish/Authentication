@@ -22,5 +22,7 @@ function standardExpressCallback(requestObject, responseObject, nextMiddleWare){
 
 app.get('/', middleware1, standardExpressCallback);
 
+app.use(errorHandler);
+
 app.listen(3000);
 
